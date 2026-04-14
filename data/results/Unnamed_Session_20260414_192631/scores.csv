@@ -1,0 +1,3 @@
+student_id,question_id,marks_awarded,max_marks,final_score,similarity_score,keyword_score,length_score,diagram_score,ocr_confidence,ocr_method,vlm_model,has_diagram,graded_at
+student answer,Q1,0.5,5.0,10.0,0.0,0.0,1.0,0.0,0.9,full_sheet,none,False,2026-04-14T19:26:48.415104
+student answer,Q2,0.68,5.0,13.52,0.0189,0.0667,1.0,0.0,0.9,full_sheet,none,False,2026-04-14T19:26:48.415131

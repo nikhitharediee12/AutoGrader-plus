@@ -1,0 +1,67 @@
+{
+  "student answer": {
+    "student_name": "student answer",
+    "total_score": "11.8%",
+    "total_marks": "1.18/10.0",
+    "grade": "F",
+    "question_feedback": [
+      {
+        "question": "Q1",
+        "score": "10.0%",
+        "marks": "0.5/5.0",
+        "performance": "poor",
+        "missing_keywords": [
+          "replication",
+          "stored",
+          "every",
+          "block",
+          "across",
+          "point"
+        ],
+        "concept_gaps": [
+          "No clear definition provided",
+          "Multiple key terms absent (15 missing) \u2014 review core concepts"
+        ],
+        "partial_areas": [],
+        "feedback": "Answer for Q1 needs significant improvement. Key terms to include: 'replication', 'stored', 'every'. Answer length is appropriate."
+      },
+      {
+        "question": "Q2",
+        "score": "13.5%",
+        "marks": "0.68/5.0",
+        "performance": "poor",
+        "missing_keywords": [
+          "monitoring",
+          "treats",
+          "temporarily",
+          "datanodes",
+          "system",
+          "unavailable"
+        ],
+        "concept_gaps": [
+          "Multiple key terms absent (14 missing) \u2014 review core concepts"
+        ],
+        "partial_areas": [],
+        "feedback": "Answer for Q2 needs significant improvement. Key terms to include: 'monitoring', 'treats', 'temporarily'. Answer length is appropriate."
+      }
+    ],
+    "overall_feedback": {
+      "strengths": [
+        "Answer attempts show effort"
+      ],
+      "weak_areas": [
+        "Needs improvement in: Q1, Q2",
+        "Recurring missing concepts: replication, stored, every, block",
+        "No clear definition provided",
+        "Multiple key terms absent (15 missing) \u2014 review core concepts",
+        "Multiple key terms absent (14 missing) \u2014 review core concepts"
+      ],
+      "suggestions": [
+        "Review all class notes and textbook chapters",
+        "Practice writing detailed answers with key terminology",
+        "Seek help from instructor for foundational concepts"
+      ],
+      "summary": "Needs substantial improvement (11.8%). Foundational concepts require review."
+    }
+  }
+}

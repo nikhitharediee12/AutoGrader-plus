@@ -1,0 +1,156 @@
+{
+  "student answer": {
+    "student_name": "student answer",
+    "total_score": "10.2%",
+    "total_marks": "4.6/45.0",
+    "grade": "F",
+    "question_feedback": [
+      {
+        "question": "Q1",
+        "score": "10.0%",
+        "marks": "0.5/5.0",
+        "performance": "poor",
+        "missing_keywords": [
+          "single",
+          "nodes",
+          "racks",
+          "factor",
+          "failures",
+          "replication"
+        ],
+        "concept_gaps": [
+          "No clear definition provided",
+          "Multiple key terms absent (15 missing) \u2014 review core concepts"
+        ],
+        "partial_areas": [],
+        "feedback": "Answer for Q1 needs significant improvement. Key terms to include: 'single', 'nodes', 'racks'. Answer length is appropriate."
+      },
+      {
+        "question": "Q2",
+        "score": "10.5%",
+        "marks": "0.53/5.0",
+        "performance": "poor",
+        "missing_keywords": [
+          "heartbeats",
+          "namenode",
+          "heartbeat",
+          "temporarily",
+          "datanodes",
+          "unavailable"
+        ],
+        "concept_gaps": [
+          "Multiple key terms absent (15 missing) \u2014 review core concepts"
+        ],
+        "partial_areas": [],
+        "feedback": "Answer for Q2 needs significant improvement. Key terms to include: 'heartbeats', 'namenode', 'heartbeat'. Answer length is appropriate."
+      },
+      {
+        "question": "Q96",
+        "score": "10.0%",
+        "marks": "1.0/10.0",
+        "performance": "poor",
+        "missing_keywords": [
+          "answer",
+          "model",
+          "provided"
+        ],
+        "concept_gaps": [
+          "Key concepts not addressed: answer, model, provided"
+        ],
+        "partial_areas": [],
+        "feedback": "Answer for Q96 needs significant improvement. Key terms to include: 'answer', 'model', 'provided'. Answer length is appropriate."
+      },
+      {
+        "question": "Q0",
+        "score": "10.0%",
+        "marks": "1.0/10.0",
+        "performance": "poor",
+        "missing_keywords": [
+          "answer",
+          "model",
+          "provided"
+        ],
+        "concept_gaps": [
+          "Key concepts not addressed: answer, model, provided"
+        ],
+        "partial_areas": [],
+        "feedback": "Answer for Q0 needs significant improvement. Key terms to include: 'answer', 'model', 'provided'. Answer length is appropriate."
+      },
+      {
+        "question": "Q2",
+        "score": "10.3%",
+        "marks": "0.51/5.0",
+        "performance": "poor",
+        "missing_keywords": [
+          "heartbeats",
+          "namenode",
+          "heartbeat",
+          "temporarily",
+          "datanodes",
+          "unavailable"
+        ],
+        "concept_gaps": [
+          "Multiple key terms absent (15 missing) \u2014 review core concepts"
+        ],
+        "partial_areas": [],
+        "feedback": "Answer for Q2 needs significant improvement. Key terms to include: 'heartbeats', 'namenode', 'heartbeat'. Answer length is appropriate."
+      },
+      {
+        "question": "Q3",
+        "score": "10.4%",
+        "marks": "0.52/5.0",
+        "performance": "poor",
+        "missing_keywords": [
+          "missing",
+          "original",
+          "detects",
+          "automatic",
+          "namenode",
+          "restored"
+        ],
+        "concept_gaps": [
+          "Multiple key terms absent (15 missing) \u2014 review core concepts"
+        ],
+        "partial_areas": [],
+        "feedback": "Answer for Q3 needs significant improvement. Key terms to include: 'missing', 'original', 'detects'. Answer length is appropriate."
+      },
+      {
+        "question": "Q3",
+        "score": "10.7%",
+        "marks": "0.54/5.0",
+        "performance": "poor",
+        "missing_keywords": [
+          "missing",
+          "original",
+          "detects",
+          "automatic",
+          "namenode",
+          "restored"
+        ],
+        "concept_gaps": [
+          "Multiple key terms absent (15 missing) \u2014 review core concepts"
+        ],
+        "partial_areas": [],
+        "feedback": "Answer for Q3 needs significant improvement. Key terms to include: 'missing', 'original', 'detects'. Answer length is appropriate."
+      }
+    ],
+    "overall_feedback": {
+      "strengths": [
+        "Answer attempts show effort"
+      ],
+      "weak_areas": [
+        "Needs improvement in: Q1, Q2, Q96, Q0, Q2, Q3, Q3",
+        "Recurring missing concepts: namenode, heartbeats, heartbeat, temporarily",
+        "No clear definition provided",
+        "Multiple key terms absent (15 missing) \u2014 review core concepts",
+        "Key concepts not addressed: answer, model, provided"
+      ],
+      "suggestions": [
+        "Review all class notes and textbook chapters",
+        "Practice writing detailed answers with key terminology",
+        "Seek help from instructor for foundational concepts"
+      ],
+      "summary": "Needs substantial improvement (10.2%). Foundational concepts require review."
+    }
+  }
+}
