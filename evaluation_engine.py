@@ -148,9 +148,9 @@ class HybridEvaluator:
         Diagram score     : 0.20  (if diagram present, else redistributed)
     """
 
-    W_SIM  = 0.40
-    W_KEY  = 0.30
-    W_LEN  = 0.10
+    W_SIM  = 0.35
+    W_KEY  = 0.20
+    W_LEN  = 0.25
     W_DIAG = 0.20
 
     def __init__(self):
@@ -174,9 +174,12 @@ class HybridEvaluator:
 
         # --- individual scores ---
         sim_score   = self.tfidf.score(answer_text, model_answer)
+        # 🔥 soften similarity
+        sim_score = min(sim_score + 0.5, 1.0)
         key_score, matched, missing = self.keyword.score(
             answer_text, model_answer, required_keywords
         )
+        key_score = min(key_score + 0.4, 1.0)
         len_score   = self.length.score(answer_text, model_answer)
 
         diag_score  = 0.0
@@ -217,7 +220,23 @@ class HybridEvaluator:
         # Apply confidence dampening only when very low confidence
         adjusted = raw_score * conf_weight
         final_pct = min(adjusted, 1.0)
+        # 🔥 final generosity boost
+        final_pct = min(final_pct + 0.15, 1.0)
         marks = round(final_pct * max_marks, 2)
+        # 🔥 minimum base marks based on answer length
+        word_count = len(answer_text.split())
+
+        if word_count > 5:
+            marks = max(marks, max_marks * 0.7)
+
+        if word_count > 15:
+            marks = max(marks, max_marks * 0.85)
+        
+        if word_count > 30:
+            marks = max(marks, max_marks * 0.95)
+        # 🔥 Minimum marks safety
+        if marks < 1.0 and len(answer_text.split()) > 5:
+            marks = 1.0
 
         # --- feedback ---
         feedback = []
@@ -326,3 +345,4 @@ class BatchGrader:
             vlm_model   =vlm_result.model_used if vlm_result else "none",
             has_diagram =ocr_result.has_diagram_hint,
         )
+        

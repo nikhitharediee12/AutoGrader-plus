@@ -1,0 +1,15 @@
+student_id,question_id,marks_awarded,max_marks,final_score,similarity_score,keyword_score,length_score,diagram_score,ocr_confidence,ocr_method,vlm_model,has_diagram,graded_at
+student answer,Q1,4.75,5.0,74.7,0.5,0.4,1.0,0.0,0.9,full_sheet,none,False,2026-04-14T20:34:04.596367
+student answer,Q2,4.75,5.0,74.7,0.5,0.4,1.0,0.0,0.9,full_sheet,none,False,2026-04-14T20:34:04.596404
+student answer,Q13,7.47,10.0,74.7,0.5,0.4,1.0,0.0,0.9,full_sheet,none,False,2026-04-14T20:34:04.596416
+student answer,Q5,3.5,5.0,69.57,0.5,0.4,0.7949,0.0,0.9,full_sheet,none,False,2026-04-14T20:34:04.596424
+student answer,Q4,3.7,5.0,73.94,0.5,0.4,0.9697,0.0,0.9,full_sheet,none,False,2026-04-14T20:34:04.596432
+student answer,Q3,3.5,5.0,59.65,0.5,0.4,0.3978,0.0,0.9,full_sheet,none,False,2026-04-14T20:34:04.596435
+student answer,Q7,3.5,5.0,50.38,0.5146,0.4,0.0,0.0,0.9,full_sheet,none,False,2026-04-14T20:34:04.596438
+ST1,Q1,4.25,5.0,76.46,0.5375,0.4,1.0,0.0,0.9,full_sheet,none,False,2026-04-14T20:34:04.596440
+ST1,Q2,4.25,5.0,76.07,0.5291,0.4,1.0,0.0,0.9,full_sheet,none,False,2026-04-14T20:34:04.596442
+ST1,Q5,4.25,5.0,74.7,0.5,0.4,1.0,0.0,0.9,full_sheet,none,False,2026-04-14T20:34:04.596445
+ST1,Q4,4.25,5.0,78.83,0.5482,0.4667,1.0,0.0,0.9,full_sheet,none,False,2026-04-14T20:34:04.596447
+ST1,Q6,4.75,5.0,84.2,0.5745,0.6143,1.0,0.0,0.9,full_sheet,none,False,2026-04-14T20:34:04.596449
+ST1,Q3,4.25,5.0,77.94,0.5292,0.4667,1.0,0.0,0.9,full_sheet,none,False,2026-04-14T20:34:04.596451
+ST1,Q7,4.25,5.0,67.06,0.6493,0.5333,0.2644,0.0,0.9,full_sheet,none,False,2026-04-14T20:34:04.596453

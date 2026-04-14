@@ -1,0 +1,166 @@
+{
+  "student answer": {
+    "student_name": "student answer",
+    "total_score": "38.5%",
+    "total_marks": "15.42/40.0",
+    "grade": "F",
+    "question_feedback": [
+      {
+        "question": "Q1",
+        "score": "38.6%",
+        "marks": "2.5/5.0",
+        "performance": "poor",
+        "missing_keywords": [
+          "nodes",
+          "stored",
+          "failures",
+          "block",
+          "factor",
+          "times"
+        ],
+        "concept_gaps": [
+          "No clear definition provided",
+          "Multiple key terms absent (15 missing) \u2014 review core concepts"
+        ],
+        "partial_areas": [],
+        "feedback": "Answer for Q1 needs significant improvement. Key terms to include: 'nodes', 'stored', 'failures'. Answer length is appropriate."
+      },
+      {
+        "question": "Q2",
+        "score": "38.6%",
+        "marks": "2.5/5.0",
+        "performance": "poor",
+        "missing_keywords": [
+          "datanode",
+          "unavailable",
+          "namenode",
+          "heartbeats",
+          "temporarily",
+          "heartbeat"
+        ],
+        "concept_gaps": [
+          "Multiple key terms absent (15 missing) \u2014 review core concepts"
+        ],
+        "partial_areas": [],
+        "feedback": "Answer for Q2 needs significant improvement. Key terms to include: 'datanode', 'unavailable', 'namenode'. Answer length is appropriate."
+      },
+      {
+        "question": "Q13",
+        "score": "38.6%",
+        "marks": "3.86/10.0",
+        "performance": "poor",
+        "missing_keywords": [
+          "model",
+          "answer",
+          "provided"
+        ],
+        "concept_gaps": [
+          "Key concepts not addressed: model, answer, provided"
+        ],
+        "partial_areas": [],
+        "feedback": "Answer for Q13 needs significant improvement. Key terms to include: 'model', 'answer', 'provided'. Answer length is appropriate."
+      },
+      {
+        "question": "Q5",
+        "score": "33.5%",
+        "marks": "1.67/5.0",
+        "performance": "poor",
+        "missing_keywords": [
+          "failover",
+          "replica",
+          "downtime",
+          "operation",
+          "datanode",
+          "client"
+        ],
+        "concept_gaps": [
+          "Mathematical expression or formula missing",
+          "Multiple key terms absent (15 missing) \u2014 review core concepts"
+        ],
+        "partial_areas": [],
+        "feedback": "Answer for Q5 needs significant improvement. Key terms to include: 'failover', 'replica', 'downtime'."
+      },
+      {
+        "question": "Q4",
+        "score": "37.8%",
+        "marks": "1.89/5.0",
+        "performance": "poor",
+        "missing_keywords": [
+          "complete",
+          "even",
+          "racks",
+          "fails",
+          "replicas",
+          "other"
+        ],
+        "concept_gaps": [
+          "Multiple key terms absent (15 missing) \u2014 review core concepts"
+        ],
+        "partial_areas": [],
+        "feedback": "Answer for Q4 needs significant improvement. Key terms to include: 'complete', 'even', 'racks'. Answer length is appropriate."
+      },
+      {
+        "question": "Q3",
+        "score": "23.6%",
+        "marks": "1.5/5.0",
+        "performance": "poor",
+        "missing_keywords": [
+          "redundancy",
+          "failure",
+          "missing",
+          "instructs",
+          "namenode",
+          "replicas"
+        ],
+        "concept_gaps": [
+          "Multiple key terms absent (15 missing) \u2014 review core concepts"
+        ],
+        "partial_areas": [
+          "Answer could be more detailed"
+        ],
+        "feedback": "Answer for Q3 needs significant improvement. Key terms to include: 'redundancy', 'failure', 'missing'. Answer is too brief \u2014 elaborate more."
+      },
+      {
+        "question": "Q7",
+        "score": "14.3%",
+        "marks": "1.5/5.0",
+        "performance": "poor",
+        "missing_keywords": [
+          "importance",
+          "availability",
+          "datanode",
+          "uninterrupted",
+          "features",
+          "involves"
+        ],
+        "concept_gaps": [
+          "Steps/process not described",
+          "Explanation lacks depth",
+          "Multiple key terms absent (15 missing) \u2014 review core concepts"
+        ],
+        "partial_areas": [
+          "Answer could be more detailed"
+        ],
+        "feedback": "Answer for Q7 needs significant improvement. Key terms to include: 'importance', 'availability', 'datanode'. Answer is too brief \u2014 elaborate more."
+      }
+    ],
+    "overall_feedback": {
+      "strengths": [
+        "Answer attempts show effort"
+      ],
+      "weak_areas": [
+        "Needs improvement in: Q1, Q2, Q13, Q5, Q4, Q3, Q7",
+        "Recurring missing concepts: datanode, namenode, replicas, nodes",
+        "No clear definition provided",
+        "Multiple key terms absent (15 missing) \u2014 review core concepts",
+        "Key concepts not addressed: model, answer, provided"
+      ],
+      "suggestions": [
+        "Review all class notes and textbook chapters",
+        "Practice writing detailed answers with key terminology",
+        "Seek help from instructor for foundational concepts"
+      ],
+      "summary": "Below average (38.6%). Significant gaps across 7 question(s). Needs focused study."
+    }
+  }
+}

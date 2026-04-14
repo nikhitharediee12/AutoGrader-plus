@@ -1,0 +1,369 @@
+{
+  "student answer": {
+    "student_name": "student answer",
+    "total_score": "77.9%",
+    "total_marks": "31.17/40.0",
+    "grade": "B",
+    "question_feedback": [
+      {
+        "question": "Q1",
+        "score": "74.7%",
+        "marks": "4.75/5.0",
+        "performance": "good",
+        "missing_keywords": [
+          "block",
+          "replicas",
+          "usually",
+          "stored",
+          "failures",
+          "different"
+        ],
+        "concept_gaps": [
+          "No clear definition provided",
+          "Multiple key terms absent (15 missing) \u2014 review core concepts"
+        ],
+        "partial_areas": [
+          "Partial semantic alignment with model answer",
+          "Some key terms covered but not all"
+        ],
+        "feedback": "Good answer for Q1, with room for improvement. Key terms to include: 'block', 'replicas', 'usually'. Answer length is appropriate."
+      },
+      {
+        "question": "Q2",
+        "score": "74.7%",
+        "marks": "4.75/5.0",
+        "performance": "good",
+        "missing_keywords": [
+          "flagged",
+          "unavailable",
+          "datanodes",
+          "system",
+          "inactive",
+          "sending"
+        ],
+        "concept_gaps": [
+          "Multiple key terms absent (15 missing) \u2014 review core concepts"
+        ],
+        "partial_areas": [
+          "Partial semantic alignment with model answer",
+          "Some key terms covered but not all"
+        ],
+        "feedback": "Good answer for Q2, with room for improvement. Key terms to include: 'flagged', 'unavailable', 'datanodes'. Answer length is appropriate."
+      },
+      {
+        "question": "Q13",
+        "score": "74.7%",
+        "marks": "7.47/10.0",
+        "performance": "good",
+        "missing_keywords": [
+          "answer",
+          "model",
+          "provided"
+        ],
+        "concept_gaps": [
+          "Key concepts not addressed: answer, model, provided"
+        ],
+        "partial_areas": [
+          "Partial semantic alignment with model answer",
+          "Some key terms covered but not all"
+        ],
+        "feedback": "Good answer for Q13, with room for improvement. Key terms to include: 'answer', 'model', 'provided'. Answer length is appropriate."
+      },
+      {
+        "question": "Q5",
+        "score": "69.6%",
+        "marks": "3.5/5.0",
+        "performance": "good",
+        "missing_keywords": [
+          "interruption",
+          "containing",
+          "experience",
+          "failover",
+          "datanode",
+          "another"
+        ],
+        "concept_gaps": [
+          "Mathematical expression or formula missing",
+          "Multiple key terms absent (15 missing) \u2014 review core concepts"
+        ],
+        "partial_areas": [
+          "Partial semantic alignment with model answer",
+          "Some key terms covered but not all"
+        ],
+        "feedback": "Good answer for Q5, with room for improvement. Key terms to include: 'interruption', 'containing', 'experience'."
+      },
+      {
+        "question": "Q4",
+        "score": "73.9%",
+        "marks": "3.7/5.0",
+        "performance": "good",
+        "missing_keywords": [
+          "remains",
+          "replicas",
+          "racks",
+          "other",
+          "aware",
+          "across"
+        ],
+        "concept_gaps": [
+          "Multiple key terms absent (15 missing) \u2014 review core concepts"
+        ],
+        "partial_areas": [
+          "Partial semantic alignment with model answer",
+          "Some key terms covered but not all"
+        ],
+        "feedback": "Good answer for Q4, with room for improvement. Key terms to include: 'remains', 'replicas', 'racks'. Answer length is appropriate."
+      },
+      {
+        "question": "Q3",
+        "score": "59.6%",
+        "marks": "3.5/5.0",
+        "performance": "partial",
+        "missing_keywords": [
+          "original",
+          "instructs",
+          "datanodes",
+          "replicas",
+          "redundancy",
+          "namenode"
+        ],
+        "concept_gaps": [
+          "Multiple key terms absent (15 missing) \u2014 review core concepts"
+        ],
+        "partial_areas": [
+          "Partial semantic alignment with model answer",
+          "Some key terms covered but not all",
+          "Answer could be more detailed"
+        ],
+        "feedback": "Partial understanding demonstrated for Q3. Key terms to include: 'original', 'instructs', 'datanodes'. Answer is too brief \u2014 elaborate more."
+      },
+      {
+        "question": "Q7",
+        "score": "50.4%",
+        "marks": "3.5/5.0",
+        "performance": "partial",
+        "missing_keywords": [
+          "availability",
+          "datanodes",
+          "datanode",
+          "different",
+          "reliability",
+          "important"
+        ],
+        "concept_gaps": [
+          "Steps/process not described",
+          "Explanation lacks depth",
+          "Multiple key terms absent (15 missing) \u2014 review core concepts"
+        ],
+        "partial_areas": [
+          "Partial semantic alignment with model answer",
+          "Some key terms covered but not all",
+          "Answer could be more detailed"
+        ],
+        "feedback": "Partial understanding demonstrated for Q7. Key terms to include: 'availability', 'datanodes', 'datanode'. Answer is too brief \u2014 elaborate more."
+      }
+    ],
+    "overall_feedback": {
+      "strengths": [
+        "Strong performance in: Q1, Q2, Q13, Q4"
+      ],
+      "weak_areas": [
+        "Recurring missing concepts: replicas, datanodes, different, datanode",
+        "No clear definition provided",
+        "Multiple key terms absent (15 missing) \u2014 review core concepts",
+        "Key concepts not addressed: answer, model, provided"
+      ],
+      "suggestions": [
+        "Strengthen answers in weak areas",
+        "Ensure all parts of each question are addressed",
+        "Include examples and diagrams where relevant"
+      ],
+      "summary": "Good performance (77.9%). Strong in 4 question(s), some gaps to address."
+    }
+  },
+  "ST1": {
+    "student_name": "ST1",
+    "total_score": "86.4%",
+    "total_marks": "30.25/35.0",
+    "grade": "A",
+    "question_feedback": [
+      {
+        "question": "Q1",
+        "score": "76.5%",
+        "marks": "4.25/5.0",
+        "performance": "good",
+        "missing_keywords": [
+          "block",
+          "replicas",
+          "usually",
+          "stored",
+          "failures",
+          "different"
+        ],
+        "concept_gaps": [
+          "Multiple key terms absent (15 missing) \u2014 review core concepts"
+        ],
+        "partial_areas": [
+          "Partial semantic alignment with model answer",
+          "Some key terms covered but not all"
+        ],
+        "feedback": "Good answer for Q1, with room for improvement. Key terms to include: 'block', 'replicas', 'usually'. Answer length is appropriate."
+      },
+      {
+        "question": "Q2",
+        "score": "76.1%",
+        "marks": "4.25/5.0",
+        "performance": "good",
+        "missing_keywords": [
+          "flagged",
+          "unavailable",
+          "datanodes",
+          "system",
+          "inactive",
+          "sending"
+        ],
+        "concept_gaps": [
+          "Multiple key terms absent (15 missing) \u2014 review core concepts"
+        ],
+        "partial_areas": [
+          "Partial semantic alignment with model answer",
+          "Some key terms covered but not all"
+        ],
+        "feedback": "Good answer for Q2, with room for improvement. Key terms to include: 'flagged', 'unavailable', 'datanodes'. Answer length is appropriate."
+      },
+      {
+        "question": "Q5",
+        "score": "74.7%",
+        "marks": "4.25/5.0",
+        "performance": "good",
+        "missing_keywords": [
+          "interruption",
+          "containing",
+          "experience",
+          "failover",
+          "datanode",
+          "another"
+        ],
+        "concept_gaps": [
+          "Mathematical expression or formula missing",
+          "Multiple key terms absent (15 missing) \u2014 review core concepts"
+        ],
+        "partial_areas": [
+          "Partial semantic alignment with model answer",
+          "Some key terms covered but not all"
+        ],
+        "feedback": "Good answer for Q5, with room for improvement. Key terms to include: 'interruption', 'containing', 'experience'. Answer length is appropriate."
+      },
+      {
+        "question": "Q4",
+        "score": "78.8%",
+        "marks": "4.25/5.0",
+        "performance": "good",
+        "missing_keywords": [
+          "remains",
+          "replicas",
+          "racks",
+          "other",
+          "aware",
+          "across"
+        ],
+        "concept_gaps": [
+          "Multiple key terms absent (14 missing) \u2014 review core concepts"
+        ],
+        "partial_areas": [
+          "Partial semantic alignment with model answer",
+          "Some key terms covered but not all"
+        ],
+        "feedback": "Good answer for Q4, with room for improvement. Key terms to include: 'remains', 'replicas', 'racks'. Answer length is appropriate."
+      },
+      {
+        "question": "Q6",
+        "score": "84.2%",
+        "marks": "4.75/5.0",
+        "performance": "excellent",
+        "missing_keywords": [
+          "reads",
+          "block",
+          "directly",
+          "read",
+          "client",
+          "file"
+        ],
+        "concept_gaps": [
+          "Explanation lacks depth",
+          "Multiple key terms absent (11 missing) \u2014 review core concepts"
+        ],
+        "partial_areas": [
+          "Partial semantic alignment with model answer",
+          "Some key terms covered but not all"
+        ],
+        "feedback": "Excellent answer for Q6. Key terms to include: 'reads', 'block', 'directly'. Answer length is appropriate."
+      },
+      {
+        "question": "Q3",
+        "score": "77.9%",
+        "marks": "4.25/5.0",
+        "performance": "good",
+        "missing_keywords": [
+          "original",
+          "instructs",
+          "datanodes",
+          "replicas",
+          "redundancy",
+          "automatic"
+        ],
+        "concept_gaps": [
+          "Multiple key terms absent (14 missing) \u2014 review core concepts"
+        ],
+        "partial_areas": [
+          "Partial semantic alignment with model answer",
+          "Some key terms covered but not all"
+        ],
+        "feedback": "Good answer for Q3, with room for improvement. Key terms to include: 'original', 'instructs', 'datanodes'. Answer length is appropriate."
+      },
+      {
+        "question": "Q7",
+        "score": "67.1%",
+        "marks": "4.25/5.0",
+        "performance": "good",
+        "missing_keywords": [
+          "availability",
+          "datanodes",
+          "datanode",
+          "different",
+          "reliability",
+          "features"
+        ],
+        "concept_gaps": [
+          "Steps/process not described",
+          "Explanation lacks depth",
+          "Multiple key terms absent (13 missing) \u2014 review core concepts"
+        ],
+        "partial_areas": [
+          "Partial semantic alignment with model answer",
+          "Some key terms covered but not all",
+          "Answer could be more detailed"
+        ],
+        "feedback": "Good answer for Q7, with room for improvement. Key terms to include: 'availability', 'datanodes', 'datanode'. Answer is too brief \u2014 elaborate more."
+      }
+    ],
+    "overall_feedback": {
+      "strengths": [
+        "Strong performance in: Q1, Q2, Q5, Q4, Q6, Q3",
+        "Consistent understanding across most questions"
+      ],
+      "weak_areas": [
+        "Recurring missing concepts: replicas, datanodes, block, different",
+        "Multiple key terms absent (15 missing) \u2014 review core concepts",
+        "Mathematical expression or formula missing",
+        "Multiple key terms absent (14 missing) \u2014 review core concepts"
+      ],
+      "suggestions": [
+        "Excellent work \u2014 maintain this standard",
+        "Consider helping peers in study groups",
+        "Explore advanced topics for deeper understanding"
+      ],
+      "summary": "Outstanding performance (86.4%). Student demonstrates thorough understanding."
+    }
+  }
+}

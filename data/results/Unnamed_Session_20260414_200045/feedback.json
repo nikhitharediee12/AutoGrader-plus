@@ -1,0 +1,166 @@
+{
+  "student answer": {
+    "student_name": "student answer",
+    "total_score": "55.0%",
+    "total_marks": "22.0/40.0",
+    "grade": "D",
+    "question_feedback": [
+      {
+        "question": "Q1",
+        "score": "38.6%",
+        "marks": "3.5/5.0",
+        "performance": "poor",
+        "missing_keywords": [
+          "every",
+          "racks",
+          "replication",
+          "nodes",
+          "multiple",
+          "avoid"
+        ],
+        "concept_gaps": [
+          "No clear definition provided",
+          "Multiple key terms absent (15 missing) \u2014 review core concepts"
+        ],
+        "partial_areas": [],
+        "feedback": "Answer for Q1 needs significant improvement. Key terms to include: 'every', 'racks', 'replication'. Answer length is appropriate."
+      },
+      {
+        "question": "Q2",
+        "score": "38.6%",
+        "marks": "3.5/5.0",
+        "performance": "poor",
+        "missing_keywords": [
+          "inactive",
+          "heartbeat",
+          "unavailable",
+          "treats",
+          "heartbeats",
+          "namenode"
+        ],
+        "concept_gaps": [
+          "Multiple key terms absent (15 missing) \u2014 review core concepts"
+        ],
+        "partial_areas": [],
+        "feedback": "Answer for Q2 needs significant improvement. Key terms to include: 'inactive', 'heartbeat', 'unavailable'. Answer length is appropriate."
+      },
+      {
+        "question": "Q13",
+        "score": "38.6%",
+        "marks": "5.0/10.0",
+        "performance": "poor",
+        "missing_keywords": [
+          "model",
+          "provided",
+          "answer"
+        ],
+        "concept_gaps": [
+          "Key concepts not addressed: model, provided, answer"
+        ],
+        "partial_areas": [],
+        "feedback": "Answer for Q13 needs significant improvement. Key terms to include: 'model', 'provided', 'answer'. Answer length is appropriate."
+      },
+      {
+        "question": "Q5",
+        "score": "33.5%",
+        "marks": "2.5/5.0",
+        "performance": "poor",
+        "missing_keywords": [
+          "experience",
+          "client",
+          "replica",
+          "automatically",
+          "connects",
+          "another"
+        ],
+        "concept_gaps": [
+          "Mathematical expression or formula missing",
+          "Multiple key terms absent (15 missing) \u2014 review core concepts"
+        ],
+        "partial_areas": [],
+        "feedback": "Answer for Q5 needs significant improvement. Key terms to include: 'experience', 'client', 'replica'."
+      },
+      {
+        "question": "Q4",
+        "score": "37.8%",
+        "marks": "2.5/5.0",
+        "performance": "poor",
+        "missing_keywords": [
+          "racks",
+          "distributed",
+          "multiple",
+          "even",
+          "accessible",
+          "fails"
+        ],
+        "concept_gaps": [
+          "Multiple key terms absent (15 missing) \u2014 review core concepts"
+        ],
+        "partial_areas": [],
+        "feedback": "Answer for Q4 needs significant improvement. Key terms to include: 'racks', 'distributed', 'multiple'. Answer length is appropriate."
+      },
+      {
+        "question": "Q3",
+        "score": "23.6%",
+        "marks": "2.5/5.0",
+        "performance": "poor",
+        "missing_keywords": [
+          "ensuring",
+          "missing",
+          "replication",
+          "automatic",
+          "namenode",
+          "automatically"
+        ],
+        "concept_gaps": [
+          "Multiple key terms absent (15 missing) \u2014 review core concepts"
+        ],
+        "partial_areas": [
+          "Answer could be more detailed"
+        ],
+        "feedback": "Answer for Q3 needs significant improvement. Key terms to include: 'ensuring', 'missing', 'replication'. Answer is too brief \u2014 elaborate more."
+      },
+      {
+        "question": "Q7",
+        "score": "14.3%",
+        "marks": "2.5/5.0",
+        "performance": "poor",
+        "missing_keywords": [
+          "replication",
+          "reliability",
+          "multiple",
+          "ensures",
+          "different",
+          "involves"
+        ],
+        "concept_gaps": [
+          "Steps/process not described",
+          "Explanation lacks depth",
+          "Multiple key terms absent (15 missing) \u2014 review core concepts"
+        ],
+        "partial_areas": [
+          "Answer could be more detailed"
+        ],
+        "feedback": "Answer for Q7 needs significant improvement. Key terms to include: 'replication', 'reliability', 'multiple'. Answer is too brief \u2014 elaborate more."
+      }
+    ],
+    "overall_feedback": {
+      "strengths": [
+        "Answer attempts show effort"
+      ],
+      "weak_areas": [
+        "Needs improvement in: Q1, Q2, Q13, Q5, Q4, Q3, Q7",
+        "Recurring missing concepts: replication, multiple, racks, namenode",
+        "No clear definition provided",
+        "Multiple key terms absent (15 missing) \u2014 review core concepts",
+        "Key concepts not addressed: model, provided, answer"
+      ],
+      "suggestions": [
+        "Focus on weak questions identified above",
+        "Practice including technical keywords in answers",
+        "Review model answers to understand expected depth"
+      ],
+      "summary": "Satisfactory (55.0%). Partial understanding shown. Targeted revision recommended."
+    }
+  }
+}
