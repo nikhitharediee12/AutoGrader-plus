@@ -14,8 +14,9 @@ class AnswerSheetProcessor:
     """
 
     def split(self, full_text: str) -> list[AnswerSegment]:
-        # Match Q1, Q2, Q3 only (strict)
-        pattern = r'\b(?:Q|Question)?\s*([1-9]|1[0-9]|20)[\.\):]?\b'
+
+    # 🔥 UNIVERSAL QUESTION PATTERN
+        pattern = r'(?:^|\n)\s*(?:Q|Question|Ans)?\s*\(?([1-9]|1[0-9]|20)\)?[\.\:\)]?'
 
         matches = list(re.finditer(pattern, full_text, re.IGNORECASE))
 
@@ -30,7 +31,7 @@ class AnswerSheetProcessor:
 
             answer_text = full_text[start:end].strip()
 
-            # ❌ Skip garbage / too small answers
+            # 🔥 FILTER GARBAGE
             if not answer_text or len(answer_text.split()) < 3:
                 continue
 
@@ -39,7 +40,7 @@ class AnswerSheetProcessor:
                 answer_text=answer_text
             ))
 
-        # ✅ Remove duplicates
+        # 🔥 REMOVE DUPLICATES
         seen = set()
         final_segments = []
 

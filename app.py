@@ -15,6 +15,36 @@ import plotly.express as px
 import plotly.graph_objects as go
 from PIL import Image
 import io
+import zipfile
+from types import SimpleNamespace
+
+
+def extract_zip_files(uploaded_files):
+    extracted_files = []
+
+    for uf in uploaded_files:
+        if uf.name.endswith(".zip"):
+            try:
+                with zipfile.ZipFile(io.BytesIO(uf.read())) as z:
+                    for file_name in z.namelist():
+
+                        if file_name.lower().endswith((".pdf", ".png", ".jpg", ".jpeg", ".tiff")):
+                            file_bytes = z.read(file_name)
+
+                            extracted_files.append(SimpleNamespace(
+                                name=file_name,
+                                type="image" if file_name.lower().endswith((".png", ".jpg", ".jpeg", ".tiff")) else "application/pdf",
+                                read=lambda b=file_bytes: b,
+                                seek=lambda x: None
+                            ))
+
+            except Exception as e:
+                st.error(f"ZIP extraction failed: {e}")
+
+        else:
+            extracted_files.append(uf)
+
+    return extracted_files
 
 # ─── Page config ───
 st.set_page_config(
@@ -40,7 +70,7 @@ st.markdown("""
     --warn:       #f7934f;
     --danger:     #f75f5f;
     --success:    #4fd87e;
-    --text-primary:   #e8eaf2;
+    --text-primary:   #ffffff;
     --text-secondary: #8b90a4;
     --border:     #252a3a;
     --font-mono:  'JetBrains Mono', 'Fira Code', monospace;
@@ -178,6 +208,15 @@ st.markdown("""
   .stTabs [data-baseweb="tab-list"] { background: var(--bg-card) !important; border-radius: 10px; padding: .25rem; }
   .stTabs [data-baseweb="tab"] { color: var(--text-secondary) !important; border-radius: 8px !important; }
   .stTabs [aria-selected="true"] { background: var(--bg-hover) !important; color: var(--text-primary) !important; }
+  /* 🔥 FORCE SIDEBAR RADIO TEXT WHITE */
+    /* 🔥 FINAL SIDEBAR TEXT FIX */
+    [data-testid="stSidebar"] label {
+        color: white !important;
+    }
+
+    [data-testid="stSidebar"] span {
+        color: white !important;
+    }
 </style>
 """, unsafe_allow_html=True)
 
@@ -667,11 +706,9 @@ def page_upload_grade():
     st.markdown('<div class="ag-info">Naming tip: <code>StudentName_Q1.pdf</code> maps automatically. Multiple files accepted.</div>', unsafe_allow_html=True)
 
     uploaded_files = st.file_uploader(
-        "Drag & drop answer sheets here",
-        type=["pdf", "png", "jpg", "jpeg", "tiff"],
-        accept_multiple_files=True,
-        label_visibility="collapsed",
-        key="main_uploader"
+        "Upload Student Answer Sheets",
+        type=["pdf", "png", "jpg", "jpeg", "tiff", "zip"],  # ✅ added zip
+        accept_multiple_files=True
     )
 
     # Feature 17: Rich file preview
@@ -745,13 +782,12 @@ def page_upload_grade():
             return
 
         _run_grading_pipeline(
-            uploaded_files=uploaded_files,
+            uploaded_files = extract_zip_files(uploaded_files),
             session_name  =session_name or "Unnamed Session",
         )
 
 
 def _run_grading_pipeline(uploaded_files, session_name):
-    """Enhanced pipeline with Features 18 (visual progress) + 14 (feedback)."""
 
     st.markdown("---")
     st.markdown("### ⚡ Live Grading Pipeline")
@@ -767,197 +803,149 @@ def _run_grading_pipeline(uploaded_files, session_name):
         icon = {"info": "ℹ", "ok": "✓", "warn": "⚠", "error": "✗"}.get(level, "·")
         ts = time.strftime("%H:%M:%S")
         logs.append(f"[{ts}] {icon} {msg}")
-        log_ph.code("\n".join(logs[-18:]), language=None)
+        log_ph.code("\n".join(logs[-15:]))
 
     def upd_pipe(step: int):
         with pipeline_ph.container():
             render_pipeline(step)
 
-    # Step 0 – Init
-    upd_pipe(0); log("Initializing session..."); progress_bar.progress(5)
+    # STEP 0
+    upd_pipe(0)
+    log("Initializing session...")
+    progress_bar.progress(5)
 
-    try:
-        from storage import SessionManager, FileSaver
-        sid = SessionManager().create_session(session_name)
-        st.session_state.session_id = sid
-        file_saver = FileSaver()
-        log(f"Session: {sid}", "ok")
-    except Exception as e:
-        log(f"Storage init failed: {e}", "error"); st.error(str(e)); return
+    from storage import SessionManager, FileSaver
+    sid = SessionManager().create_session(session_name)
+    st.session_state.session_id = sid
+    file_saver = FileSaver()
 
-    # Step 1 – Parse / QP mapping
-    upd_pipe(1); log("Mapping files to questions..."); progress_bar.progress(12)
+    log(f"Session: {sid}", "ok")
 
-    try:
-        from qp_parser import StudentFileMapper
-        mapper = StudentFileMapper()
-        file_infos = mapper.map([uf.name for uf in uploaded_files])
-        log(f"Mapped {len(file_infos)} files", "ok")
-    except Exception as e:
-        log(f"File mapping warning: {e}", "warn")
-        file_infos = [{"filename": uf.name, "student_id": Path(uf.name).stem,
-                       "question_id": "Q1", "confidence": "low"}
-                      for uf in uploaded_files]
+    # STEP 1
+    upd_pipe(1)
+    log("Mapping files...")
+    progress_bar.progress(10)
 
-    # Build lookup
-    file_lookup = {fi["filename"]: fi for fi in file_infos}
-    marks_map   = st.session_state.marks_map
-    cfg         = st.session_state.grading_config
+    from qp_parser import StudentFileMapper
+    mapper = StudentFileMapper()
+    file_infos = mapper.map([uf.name for uf in uploaded_files])
 
-    # Save uploads
+    # save files
     for uf, fi in zip(uploaded_files, file_infos):
         uf.seek(0)
-        file_saver.save_upload(sid, uf.read(), uf.name,
-                               fi["student_id"], fi["question_id"])
+        file_saver.save_upload(
+            sid, uf.read(), uf.name,
+            fi["student_id"], fi["question_id"]
+        )
         uf.seek(0)
 
+    # STEP 2
+    upd_pipe(2)
+    log("OCR processing...")
     progress_bar.progress(20)
 
-    # Step 2 – OCR
-    upd_pipe(2); log("Starting OCR processing...")
-
-    try:
-        from evaluation_engine import BatchGrader
-        grader = BatchGrader()
-    except Exception as e:
-        log(f"Grader init warning: {e}", "warn"); grader = None
+    from evaluation_engine import BatchGrader
+    grader = BatchGrader()
 
     results = []
-    total   = len(uploaded_files)
+    total = len(uploaded_files)
 
     for idx, (uf, fi) in enumerate(zip(uploaded_files, file_infos)):
+
         student_id  = fi["student_id"]
         question_id = fi["question_id"]
+
         model_answer = st.session_state.model_answers.get(question_id, "")
-        max_marks    = marks_map.get(question_id, cfg["max_marks"])
+        max_marks    = st.session_state.marks_map.get(question_id, 10)
 
-        kw_key  = f"kw_{question_id}"
-        kw_raw  = st.session_state.get(kw_key, "")
-        keywords = ([k.strip() for k in kw_raw.split("\n") if k.strip()]
-                    if isinstance(kw_raw, str) and kw_raw else None)
-
-        # Fallback to QP keywords
-        qp = st.session_state.get("question_paper")
-        if not keywords and qp:
-            q_entry = qp.get(question_id)
-            if q_entry and q_entry.keywords:
-                keywords = q_entry.keywords
-
-        status_text.text(f"[{idx+1}/{total}] OCR: {student_id} — {question_id}")
-        upd_pipe(2)
+        status_text.text(f"[{idx+1}/{total}] {student_id} - {question_id}")
 
         try:
             uf.seek(0)
+
             if uf.type.startswith("image"):
                 img_source = Image.open(io.BytesIO(uf.read()))
             else:
                 img_source = _pdf_to_pil(uf.read())
+
             uf.seek(0)
 
-            # Step 3 – VLM
+            # STEP 3 – VLM
             upd_pipe(3)
-            if grader:
-                if uf.type == "application/pdf":
-                    from full_sheet_grader import FullSheetGrader
 
-                    grader_full = FullSheetGrader()
+            if uf.type == "application/pdf":
+                from full_sheet_grader import FullSheetGrader
 
-                    uf.seek(0)
-                    full_text = grader.ocr.extract_full_text(uf.read())
-                    uf.seek(0)
+                grader_full = FullSheetGrader()
 
-                    full_results = grader_full.grade(
-                        full_text=full_text,
-                        student_id=student_id,
-                        model_answers=st.session_state.model_answers,
-                        max_marks_map=st.session_state.marks_map
-                    )
+                uf.seek(0)
+                full_text = grader.ocr.extract_full_text(uf.read())
+                uf.seek(0)
 
-                    results.extend(full_results)
+                full_results = grader_full.grade(
+                    full_text=full_text,
+                    student_id=student_id,
+                    model_answers=st.session_state.model_answers,
+                    max_marks_map=st.session_state.marks_map,
+                    file_bytes=uf.read()   # ✅ REQUIRED
+                )
 
-                else:
-                    if model_answer:
-                    # ✅ Old logic (unchanged)
-                        result = grader.grade_image(
-                            image_source      =img_source,
-                            student_id        =student_id,
-                            question_id       =question_id,
-                            model_answer      =model_answer,
-                            max_marks         =float(max_marks),
-                            keywords          =keywords,
-                            force_handwriting =cfg["force_handwriting"],
-                        )
-                        results.append(result)
-                upd_pipe(4)
-                log(f"{student_id} processed", "ok")
+                results.extend(full_results)
+
             else:
-                log(f"Skipped {student_id} {question_id} — no model answer", "warn")
+                # 🔥 ALWAYS GRADE (NO SKIP)
+                result = grader.grade_image(
+                    image_source      = img_source,
+                    student_id        = student_id,
+                    question_id       = question_id,
+                    model_answer      = model_answer,
+                    max_marks         = float(max_marks),
+                    keywords          = None,
+                    force_handwriting = False,
+                )
+
+                results.append(result)
+
+            upd_pipe(4)
+            log(f"{student_id} processed", "ok")
 
         except Exception as e:
-            log(f"Error on {student_id} {question_id}: {e}", "error")
+            log(f"Error on {student_id}: {e}", "error")
 
         progress_bar.progress(int(20 + (idx / total) * 50))
 
-    # Step 4 – Evaluate complete; Step 5 – Feedback (Feature 14)
-    upd_pipe(5); log("Generating student feedback reports...")
+    # STEP 5 – Feedback
+    upd_pipe(5)
+    log("Generating feedback...")
     progress_bar.progress(75)
 
-    question_texts = st.session_state.get("question_texts", {})
-    model_answers  = st.session_state.model_answers
+    from feedback_engine import BatchFeedbackGenerator
+    fbg = BatchFeedbackGenerator()
 
-    student_reports = {}
-    if results:
-        try:
-            from feedback_engine import BatchFeedbackGenerator
-            fbg = BatchFeedbackGenerator()
-            student_reports = fbg.generate_all(results, question_texts, model_answers)
-            log(f"Feedback generated for {len(student_reports)} students", "ok")
-        except Exception as e:
-            log(f"Feedback generation warning: {e}", "warn")
+    reports = fbg.generate_all(
+        results,
+        st.session_state.get("question_texts", {}),
+        st.session_state.model_answers
+    )
 
-    st.session_state.student_reports = student_reports
+    st.session_state.student_reports = reports
 
-    # Step 6 – Save
-    upd_pipe(6); log("Saving results..."); progress_bar.progress(88)
+    # STEP 6 – Save
+    upd_pipe(6)
+    log("Saving results...")
+    progress_bar.progress(90)
 
-    if results:
-        try:
-            from storage import FileSaver as FS
-            file_saver.save_results(sid, results)
-
-            # Save feedback JSON
-            feedback_path = Path("data/results") / sid / "feedback.json"
-            feedback_path.parent.mkdir(parents=True, exist_ok=True)
-            feedback_data = {k: v.to_dict() for k, v in student_reports.items()}
-            feedback_path.write_text(json.dumps(feedback_data, indent=2))
-            log(f"Saved {len(results)} results + feedback", "ok")
-        except Exception as e:
-            log(f"Save warning: {e}", "warn")
-
-    # Validation (Feature 20) — if teacher marks were uploaded
-    teacher_bytes = st.session_state.get("teacher_marks_bytes")
-    if teacher_bytes and results:
-        try:
-            from validation_engine import ValidationEngine
-            ve = ValidationEngine()
-            t_df = ve.load_teacher_marks_csv(teacher_bytes)
-            max_map = {k: float(v) for k, v in st.session_state.marks_map.items()}
-            val_report = ve.compare(results, t_df, max_map)
-            st.session_state.validation_report = val_report
-            log(f"Validation complete — accuracy: {val_report.overall_accuracy:.1f}%", "ok")
-        except Exception as e:
-            log(f"Validation warning: {e}", "warn")
+    file_saver.save_results(sid, results)
 
     st.session_state.results = results
+
     progress_bar.progress(100)
-    status_text.empty()
-    log("✅ All done!", "ok")
+    log("✅ Done!", "ok")
 
     if results:
-        st.markdown('<div class="ag-success">✓ Grading complete! Go to <b>Results</b> page to view detailed feedback.</div>', unsafe_allow_html=True)
-        _render_quick_summary(results)
+        st.success("Grading complete!")
     else:
-        st.markdown('<div class="ag-warn">No results generated. Check model answers and uploads.</div>', unsafe_allow_html=True)
+        st.warning("No results generated")
 
 
 def _pdf_to_pil(pdf_bytes: bytes) -> Image.Image:

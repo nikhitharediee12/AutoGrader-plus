@@ -39,3 +39,16 @@ class OCRRouter:
                         text += ocr_text + "\n"
 
         return text
+    def extract_images_from_pdf(self, file_bytes):
+        import pdfplumber
+        import io
+        from PIL import Image
+
+        images = []
+
+        with pdfplumber.open(io.BytesIO(file_bytes)) as pdf:
+            for page in pdf.pages:
+                img = page.to_image(resolution=300).original
+                images.append(img)
+
+        return images

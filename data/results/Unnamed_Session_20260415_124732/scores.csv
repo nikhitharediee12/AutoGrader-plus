@@ -1,0 +1,8 @@
+student_id,question_id,marks_awarded,max_marks,final_score,similarity_score,keyword_score,length_score,diagram_score,ocr_confidence,ocr_method,vlm_model,has_diagram,graded_at
+student answer,Q1,4.75,5.0,62.5,0.5,0.4,1.0,0.0,0.9,full_sheet,moondream,True,2026-04-15T12:48:17.443250
+student answer,Q2,4.25,5.0,61.12068965517242,0.5,0.4,0.9310344827586207,0.0,0.9,full_sheet,moondream,True,2026-04-15T12:48:17.443284
+student answer,Q4,4.25,5.0,62.5,0.5,0.4,1.0,0.0,0.9,full_sheet,moondream,True,2026-04-15T12:48:17.443292
+student answer,Q8,9.5,10.0,69.16666666666667,0.5,0.4,1.0,0.3333333333333333,0.9,full_sheet,moondream,True,2026-04-15T12:48:17.443297
+student answer,Q9,9.5,10.0,69.16666666666667,0.5,0.4,1.0,0.3333333333333333,0.9,full_sheet,moondream,True,2026-04-15T12:48:17.443303
+student answer,Q3,4.75,5.0,67.13125026667967,0.5349188387882502,0.5363636363636364,1.0,0.0,0.9,full_sheet,moondream,True,2026-04-15T12:48:17.443309
+student answer,Q5,4.75,5.0,64.92758503184997,0.5247167151957135,0.4625,1.0,0.0,0.9,full_sheet,moondream,True,2026-04-15T12:48:17.443314
