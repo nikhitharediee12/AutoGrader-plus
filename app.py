@@ -208,15 +208,6 @@ st.markdown("""
   .stTabs [data-baseweb="tab-list"] { background: var(--bg-card) !important; border-radius: 10px; padding: .25rem; }
   .stTabs [data-baseweb="tab"] { color: var(--text-secondary) !important; border-radius: 8px !important; }
   .stTabs [aria-selected="true"] { background: var(--bg-hover) !important; color: var(--text-primary) !important; }
-  /* 🔥 FORCE SIDEBAR RADIO TEXT WHITE */
-    /* 🔥 FINAL SIDEBAR TEXT FIX */
-    [data-testid="stSidebar"] label {
-        color: white !important;
-    }
-
-    [data-testid="stSidebar"] span {
-        color: white !important;
-    }
 </style>
 """, unsafe_allow_html=True)
 
@@ -273,7 +264,7 @@ with st.sidebar:
       QP → OCR → VLM → Score → Feedback
       <br><br>
       <b style="color:#8b90a4">Storage</b><br>
-      Local files • CSV + JSON<br>
+      Local files • CSV only<br>
       No database • No cloud
     </div>
     """, unsafe_allow_html=True)
@@ -1097,11 +1088,32 @@ def page_results():
             for sg in report.overall_feedback.suggestions:
                 st.markdown(f'<div class="ag-info" style="margin-bottom:.3rem">{sg}</div>', unsafe_allow_html=True)
 
-        # Download JSON report
-        report_json = report.to_json()
+        
+
+        rows = []
+
+        for r in results:
+            if r.student_id == selected:
+                rows.append({
+                    "student_id": r.student_id,
+                    "question_id": r.question_id,
+                    "marks_awarded": r.scores.marks_awarded,
+                    "max_marks": r.scores.max_marks,
+                    "score_percent": r.scores.final_score,
+                    "similarity": r.scores.similarity_score,
+                    "keyword_score": r.scores.keyword_score,
+                    "diagram_score": r.scores.diagram_score,
+                    "has_diagram": r.has_diagram,
+                    "vlm_model": r.vlm_model
+                })
+
+        df = pd.DataFrame(rows)
+
         st.download_button(
-            f"⬇ Download {selected}'s Report (JSON)",
-            report_json.encode(), f"{selected}_report.json", "application/json",
+            f"⬇ Download {selected}'s Report (CSV)",
+            df.to_csv(index=False),
+            f"{selected}_report.csv",
+            "text/csv",
             key=f"dl_report_{selected}"
         )
 

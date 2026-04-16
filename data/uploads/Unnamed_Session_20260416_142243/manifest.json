@@ -1,0 +1,37 @@
+{
+  "qQ1_student_answer.pdf": {
+    "original_name": "student answer.pdf",
+    "student_id": "student answer",
+    "question_id": "Q1",
+    "saved_at": "2026-04-16T14:22:43.801677",
+    "size_bytes": 1159865
+  },
+  "qQ1_ST1.pdf": {
+    "original_name": "ST1.pdf",
+    "student_id": "ST1",
+    "question_id": "Q1",
+    "saved_at": "2026-04-16T14:22:43.813376",
+    "size_bytes": 3960079
+  },
+  "qQ1_ST2.pdf": {
+    "original_name": "ST2.pdf",
+    "student_id": "ST2",
+    "question_id": "Q1",
+    "saved_at": "2026-04-16T14:22:43.838828",
+    "size_bytes": 73876
+  },
+  "qQ1_ST3.pdf": {
+    "original_name": "ST3.pdf",
+    "student_id": "ST3",
+    "question_id": "Q1",
+    "saved_at": "2026-04-16T14:22:43.863232",
+    "size_bytes": 67287
+  },
+  "qQ1_ST4.pdf": {
+    "original_name": "ST4.pdf",
+    "student_id": "ST4",
+    "question_id": "Q1",
+    "saved_at": "2026-04-16T14:22:43.882851",
+    "size_bytes": 63517
+  }
+}

@@ -130,28 +130,36 @@ class FileSaver:
         })
         return dest
 
-    def save_results(self, session_id: str,
-                     results: list[StudentResult]) -> tuple[Path, Path]:
-        """
-        Save results to CSV + JSON.
-        Returns (csv_path, json_path).
-        """
-        # ── CSV ──
-        csv_path = RESULTS_DIR / session_id / "scores.csv"
-        rows = [_result_to_row(r) for r in results]
-        with open(csv_path, "w", newline="", encoding="utf-8") as f:
-            if rows:
-                writer = csv.DictWriter(f, fieldnames=rows[0].keys())
-                writer.writeheader()
-                writer.writerows(rows)
+    def save_results(self, sid, results):
+        import pandas as pd
+        from pathlib import Path
 
-        # ── JSON (full detail) ──
-        json_path = RESULTS_DIR / session_id / "details.json"
-        json_path.write_text(
-            json.dumps([_result_to_dict(r) for r in results], indent=2)
-        )
+        save_dir = Path("data/results") / sid
+        save_dir.mkdir(parents=True, exist_ok=True)
 
-        return csv_path, json_path
+        rows = []
+
+        for r in results:
+            rows.append({
+                "student_id": r.student_id,
+                "question_id": r.question_id,
+                "marks_awarded": r.scores.marks_awarded,
+                "max_marks": r.scores.max_marks,
+                "final_score": r.scores.final_score,
+                "similarity_score": r.scores.similarity_score,
+                "keyword_score": r.scores.keyword_score,
+                "length_score": r.scores.length_score,
+                "diagram_score": r.scores.diagram_score,
+                "has_diagram": r.has_diagram,
+                "vlm_model": r.vlm_model
+            })
+
+        # ✅ prevent empty CSV crash
+        if not rows:
+            return
+
+        df = pd.DataFrame(rows)
+        df.to_csv(save_dir / "scores.csv", index=False)
 
     def _update_manifest(self, session_id: str, fname: str, meta: dict):
         manifest_path = UPLOADS_DIR / session_id / "manifest.json"
@@ -187,7 +195,12 @@ class ResultRetriever:
         for session_dir in RESULTS_DIR.iterdir():
             csv_p = session_dir / "scores.csv"
             if csv_p.exists():
-                df = pd.read_csv(csv_p)
+                try:
+                    df = pd.read_csv(csv_p)
+                    if df.empty:
+                        continue
+                except:
+                    continue
                 df["session_id"] = session_dir.name
                 frames.append(df)
         if frames:
